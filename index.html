@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>ASCII Box</title>
+    <style>
+        video {
+            display: none;
+        }
+
+        pre {
+            font-family: monospace;
+            font-weight: bold;
+            font-size: 12px;
+            line-height: 7px;
+        }
+
+        button {
+            background-image: url(tisk.png);
+            background-size: 87px 29px;
+            border: 0;
+            cursor: pointer;
+            height: 29px;
+            width: 87px;
+        }
+    </style>
+</head>
+
+<body>
+    <video id="video" autoplay></video>
+    <pre id="ascii-container-video"></pre>
+    <button type="button" id="print" title="Tisk"></button>
+    
+    <script src="./node_modules/dom-to-image/dist/dom-to-image.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/0.5.0-beta4/html2canvas.min.js"></script>
+    <script src="jscii.js"></script>
+    <script src="app.js"></script>
+</body>
+
+</html>
