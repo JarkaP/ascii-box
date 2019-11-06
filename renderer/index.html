@@ -10,11 +10,19 @@
 </head>
 
 <body>
-    <video id="video" autoplay></video>
-    <pre id="ascii-container-video"></pre>
-    <button type="button" id="print" title="Tisk"></button>
+    <div id="placeholders">
+        <video id="video" width="600" height="450" autoplay></video>
+        <canvas id="video-output-img" width="600" height="450"></canvas>
+        <pre id="ascii-container-video" class="stream"></pre>
+        <button type="button" id="print" title="Tisk"></button>
+    </div>
+
+    <div class="result">
+        <pre id="ascii-output-img" class="img"></pre>
+    </div>
 
     <script src="./scripts/jscii.js"></script>
+    <script src="./scripts/html2pdf.bundle.min.js"></script>
     <script src="./scripts/app.js"></script>
 </body>
 

@@ -1,12 +1,22 @@
-video {
+video,
+canvas,
+#ascii-input-img {
     display: none;
 }
 
 pre {
     font-family: monospace;
     font-weight: bold;
+}
+
+pre.stream {
     font-size: 10px;
     line-height: 6px;
+}
+
+pre.img {
+    font-size: 14px;
+    line-height: 8px;
 }
 
 button {
