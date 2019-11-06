@@ -1,0 +1,19 @@
+video {
+    display: none;
+}
+
+pre {
+    font-family: monospace;
+    font-weight: bold;
+    font-size: 10px;
+    line-height: 6px;
+}
+
+button {
+    background-image: url(tisk.png);
+    background-size: 87px 29px;
+    border: 0;
+    cursor: pointer;
+    height: 29px;
+    width: 87px;
+}
