@@ -19,8 +19,11 @@ new Jscii({
 })
 
 printButton.addEventListener('click', () => {
-    context.drawImage(videoPlayer, 0, 0, 640, 480)
+    outputASCIIImage()
+})
 
+function outputASCIIImage() {
+    context.drawImage(videoPlayer, 0, 0, 640, 480)
     let image = new Image()
     image.src = canvas.toDataURL('image/png')
     image.id = 'ascii-input-img'
@@ -36,4 +39,4 @@ printButton.addEventListener('click', () => {
     })
 
     document.body.removeChild(image)
-})
+}
