@@ -5,6 +5,7 @@ const printButton = document.getElementById('print')
 const asciiContainer = document.getElementById('ascii-container-video')
 const canvas = document.getElementById('video-output-img')
 const context = canvas.getContext('2d')
+const ipcRenderer = require('electron').ipcRenderer
 
 if (navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
     navigator.mediaDevices.getUserMedia({ video: true }).then(stream => {
@@ -35,8 +36,13 @@ function outputASCIIImage() {
         el: document.getElementById('ascii-input-img'),
         fn: function(str) {
             document.getElementById('ascii-output-img').innerHTML = str
+            sendCommandToWorker(str)
         },
     })
 
     document.body.removeChild(image)
+}
+
+function sendCommandToWorker(content) {
+    ipcRenderer.send('printPDF', content)
 }
