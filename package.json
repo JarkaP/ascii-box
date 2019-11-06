@@ -1,14 +1,20 @@
 {
-  "name": "ascii-box",
-  "version": "0.0.1",
-  "description": "",
-  "main": "app.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "author": "Jarka P",
-  "license": "ISC",
-  "dependencies": {
-    "dom-to-image": "^2.6.0"
-  }
+    "name": "ascii-box",
+    "version": "0.0.1",
+    "description": "",
+    "main": "main.js",
+    "dependencies": {
+        "electron-reload": "^1.5.0"
+    },
+    "devDependencies": {
+        "electron": "^7.1.0"
+    },
+    "scripts": {
+        "start": "electron ."
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/JarkaP/ascii-box.git"
+    },
+    "author": "Jarka P"
 }

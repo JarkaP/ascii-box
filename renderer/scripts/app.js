@@ -1,4 +1,4 @@
-/* global domtoimage Jscii */
+/* global Jscii */
 
 const videoPlayer = document.getElementById('video')
 const printButton = document.getElementById('print')
@@ -16,16 +16,4 @@ new Jscii({
     el: videoPlayer,
 })
 
-printButton.addEventListener('click', () => {
-    domtoimage
-        .toSvg(asciiContainer)
-        .then(function(dataUrl) {
-            var link = document.createElement('a')
-            link.download = 'ascii.svg'
-            link.href = dataUrl
-            link.click()
-        })
-        .catch(function(error) {
-            console.error('oops, something went wrong!', error)
-        })
-})
+printButton.addEventListener('click', () => {})
