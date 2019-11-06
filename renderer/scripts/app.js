@@ -7,7 +7,9 @@ const canvas = document.getElementById('video-output-img')
 const context = canvas.getContext('2d')
 
 const fs = require('fs')
-const os = require('os')
+const printer = require('pdf-to-printer')
+
+const pdfPath = require('os').tmpdir() + '/ascii.pdf'
 
 const pdfOptions = {
     filename: 'ascii.pdf',
@@ -59,9 +61,9 @@ function createPdf(output) {
         .from(output)
         .toPdf()
         .output('datauristring')
-        .then(function(pdfAsString) {
+        .then(pdfAsString => {
             fs.writeFile(
-                os.tmpdir() + '/ascii.pdf',
+                pdfPath,
                 pdfAsString.split(';base64,').pop(),
                 { encoding: 'base64' },
                 function(err) {
@@ -79,4 +81,9 @@ function print(output) {
     createPdf(output)
 }
 
-function printPdf() {}
+function printPdf() {
+    printer
+        .print(pdfPath)
+        .then(console.log)
+        .catch(console.error)
+}
