@@ -91,7 +91,7 @@ function printPdf() {
             }
 
             printer
-                .print(pdfPath)
+                .print(pdfPath, options)
                 .then(console.log)
                 .catch(console.error)
         })
