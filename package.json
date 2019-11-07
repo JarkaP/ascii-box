@@ -4,19 +4,34 @@
     "description": "",
     "main": "main.js",
     "dependencies": {
-        "electron-is-dev": "^1.1.0",
         "electron-reload": "^1.5.0",
+        "electron-is-dev": "^1.1.0",
         "pdf-to-printer": "^1.0.6"
     },
     "devDependencies": {
-        "electron": "^7.1.0"
+        "electron": "^7.1.0",
+        "electron-builder": "^22.1.0"
     },
     "scripts": {
-        "start": "electron ."
+        "start": "electron .",
+        "dist": "electron-builder"
     },
     "repository": {
         "type": "git",
         "url": "git+https://github.com/JarkaP/ascii-box.git"
     },
-    "author": "Jarka P"
+    "author": "Jarka P",
+    "build": {
+        "productName": "ASCII Kamera",
+        "appId": "electron.knav-ascii-kamera",
+        "win": {
+            "icon": "build/icons/256x256.png",
+            "target": [
+                "portable"
+            ]
+        },
+        "portable": {
+            "artifactName": "knav-ascii-kamera.exe"
+        }
+    }
 }
