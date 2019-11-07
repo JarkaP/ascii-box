@@ -1,3 +1,9 @@
+body {
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+
 video,
 canvas,
 #ascii-input-img {
@@ -7,11 +13,14 @@ canvas,
 pre {
     font-family: monospace;
     font-weight: bold;
+    user-select: none;
 }
 
 pre.stream {
+    display: inline-block;
     font-size: 10px;
     line-height: 6px;
+    margin: 0;
 }
 
 pre.img {
@@ -24,6 +33,12 @@ button {
     background-size: 87px 29px;
     border: 0;
     cursor: pointer;
+    display: block;
     height: 29px;
+    margin-top: 8px;
     width: 87px;
+}
+
+#placeholders {
+    height: 100vh;
 }
