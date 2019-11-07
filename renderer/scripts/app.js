@@ -64,9 +64,8 @@ function createPdf(output) {
         .then(pdfAsString => {
             fs.writeFile(
                 pdfPath,
-                pdfAsString.split(';base64,').pop(),
-                { encoding: 'base64' },
-                function(err) {
+                pdfAsString.split(';base64,').pop(), { encoding: 'base64' },
+                err => {
                     if (err) {
                         return alert(err)
                     }
@@ -82,8 +81,19 @@ function print(output) {
 }
 
 function printPdf() {
+    let options = {}
+    let selectedPrinter = 'hp LaserJet 1015 HB'
     printer
-        .print(pdfPath)
-        .then(console.log)
+        .list()
+        .then(printers => {
+            if (printers.includes(selectedPrinter)) {
+                options.printer = selectedPrinter
+            }
+
+            printer
+                .print(pdfPath)
+                .then(console.log)
+                .catch(console.error)
+        })
         .catch(console.error)
 }
