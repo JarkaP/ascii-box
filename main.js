@@ -2,22 +2,33 @@
 
 const { app, BrowserWindow } = require('electron')
 
+const isDev = require('electron-is-dev')
+
 require('electron-reload')(__dirname)
 
 let win
 
 function createWindow() {
-    win = new BrowserWindow({
-        width: 800,
-        height: 600,
+    let winOptions = {
         webPreferences: {
             nodeIntegration: true,
         },
-    })
+    }
+
+    if (!isDev) {
+        winOptions.fullscreen = true
+        winOptions.frame = false
+        winOptions.autoHideMenuBar = true
+        winOptions.kiosk = true
+    }
+
+    win = new BrowserWindow(winOptions)
 
     win.loadFile('renderer/index.html')
 
-    win.webContents.openDevTools()
+    if (isDev) {
+        win.webContents.openDevTools()
+    }
 }
 
 app.on('ready', createWindow)

@@ -4,6 +4,7 @@
     "description": "",
     "main": "main.js",
     "dependencies": {
+        "electron-is-dev": "^1.1.0",
         "electron-reload": "^1.5.0",
         "pdf-to-printer": "^1.0.6"
     },
